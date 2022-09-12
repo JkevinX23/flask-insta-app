@@ -1,0 +1,16 @@
+### LIST USERS
+GET http://127.0.0.1:5000/users HTTP/1.1
+
+
+
+### CREATE USER
+
+POST http://127.0.0.1:5000/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "description": "primeiro teste",
+    "profile_url": "avatars.dicebear.com/api/bottts/stefan.svg",
+    "nickname": "joaorodrigues123"
+}
