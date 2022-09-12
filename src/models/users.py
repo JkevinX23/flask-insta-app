@@ -6,7 +6,7 @@ class Users(db.Model):
 
     id = db.Column(db.String(36), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    desciption = db.Column(db.Text)
+    description = db.Column(db.Text)
     profile_url = db.Column(db.String(255))
     nickname = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=False),
