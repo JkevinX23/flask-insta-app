@@ -1,4 +1,4 @@
-from src.server.instance import db
+from src.server.instance import db, ma
 from sqlalchemy.sql import func
 
 class Users(db.Model):
@@ -15,3 +15,9 @@ class Users(db.Model):
 
     def __repr__(self):
         return f'<User {self.name}>'
+
+class UserSchema(ma.Schema):
+    class Meta:
+        fields = ("id","name","description","profile_url", "nickname", "created_at")
+user_schema = UserSchema(many = False)
+users_schema = UserSchema(many = True)

@@ -4,6 +4,8 @@ from flask_restx import Api
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+
 MIGRATION_DIR = os.path.join('src', 'database', 'migrations')
 
 app = Flask(__name__)
@@ -18,5 +20,7 @@ api = Api(app,
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_STRING_CONNECTION')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+ma = Marshmallow(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, directory=MIGRATION_DIR)
